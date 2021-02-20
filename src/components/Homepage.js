@@ -17,7 +17,10 @@ const Homepage = () => {
                     Just sign up and start reading some quality blogs.
                 </p>
                 <GoogleLogin
-                    clientId='769220826705-q22p6f3bbjvm3s2r308don7tuh5qeg71.apps.googleusercontent.com'
+                    // local:
+                    // clientId='769220826705-q22p6f3bbjvm3s2r308don7tuh5qeg71.apps.googleusercontent.com'
+                    // local & published
+                    clientId='415904535276-idcsd2b3djvt3k4s34ijoq5u3qi1lptm.apps.googleusercontent.com'
                     render={(renderProps) => (
                         <button
                             onClick={renderProps.onClick}
