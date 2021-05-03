@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { Avatar } from "@material-ui/core";
+import React, { useState } from "react";
 import { GoogleLogout } from "react-google-login";
+import { useDispatch, useSelector } from "react-redux";
 import {
     selectSignedIn,
     selectUserData,
@@ -8,14 +9,13 @@ import {
     setSignedIn,
     setUserData,
 } from "../features/userSlice";
-import '../styling/navbar.scss';
-import { Avatar } from "@material-ui/core";
+
+import "../styling/navbar.scss";
 
 const Navbar = () => {
-
-    const [inputValue, setInputValue] = useState("");
+    const [inputValue, setInputValue] = useState("tech");
     const isSignedIn = useSelector(selectSignedIn);
-    const userData = useSelector(setUserData);
+    const userData = useSelector(selectUserData);
 
     const dispatch = useDispatch();
 
@@ -24,20 +24,25 @@ const Navbar = () => {
         dispatch(setUserData(null));
     };
 
-    const handleClick = (e) => { };
+    const handleClick = (e) => {
+        e.preventDefault();
+        dispatch(setInput(inputValue));
+    };
 
     return (
         <div className="navbar">
-
+            <h1 className="navbar__header">Tera Developers 💬</h1>
             {isSignedIn && (
                 <div className="blog__search">
-                    <h1 className="navbar__header">Tera 💬 Developers</h1>
-                    <input className="search"
-                        val placeholder="search"
+                    <input
+                        className="search"
+                        placeholder="Search for a blog"
                         value={inputValue}
                         onChange={(e) => setInputValue(e.target.value)}
                     />
-                    <button className="submit" onClick={handleClick} >Search</button>
+                    <button className="submit" onClick={handleClick}>
+                        Search
+          </button>
                 </div>
             )}
 
@@ -57,17 +62,17 @@ const Navbar = () => {
                                 disabled={renderProps.disabled}
                                 className="logout__button"
                             >
-                                Logout
+                                Logout 😦
                             </button>
                         )}
                         onLogoutSuccess={logout}
                     />
                 </div>
             ) : (
-                <h1 className="notSignedIn"></h1>
+                <h1 className="notSignedIn">User not available 😞</h1>
             )}
         </div>
-    )
-}
+    );
+};
 
-export default Navbar
+export default Navbar;
