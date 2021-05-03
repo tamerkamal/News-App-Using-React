@@ -1,21 +1,26 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import GoogleLogin from 'react-google-login';
-import { selectSignedIn } from '../features/userSlice';
+import { selectSignedIn, setSignedIn, setUserData } from '../features/userSlice';
+import '../styling/home.css';
 
 const Homepage = () => {
 
-    const login = (response) => {
-        console.log(response);
-    };
-
     const isSignedIn = useSelector(selectSignedIn);
+
+    const dispatch = useDispatch();
+
+    const login = (response) => {
+        console.log('google Logged In Response: ', response);
+        dispatch(setSignedIn(true));
+        dispatch(setUserData(response.profileObj));
+    };
 
     return (
         <div className='home__page' style={{ display: isSignedIn ? "none" : "" }} >
             {!isSignedIn ? <div className='login__message'>
-                <h2></h2>
-                <h1>A Readers favourite place</h1>
+                <h2>📗 Tera Developers</h2>
+                <h1>House of Developers</h1>
                 <p>
                     We Provide high quality online resource for reading blogs.
                     Just sign up and start reading some quality blogs.
