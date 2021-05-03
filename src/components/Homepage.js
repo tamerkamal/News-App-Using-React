@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import GoogleLogin from 'react-google-login';
 import { selectSignedIn, setSignedIn, setUserData } from '../features/userSlice';
-import '../styling/home.css';
+import '../styling/home.scss';
 
 const Homepage = () => {
 
@@ -22,8 +22,7 @@ const Homepage = () => {
                 <h2>📗 Tera Developers</h2>
                 <h1>House of Developers</h1>
                 <p>
-                    We Provide high quality online resource for reading blogs.
-                    Just sign up and start reading some quality blogs.
+                    We Provide high quality Software Development & Design related Posts.
                 </p>
                 <GoogleLogin
                     // local:

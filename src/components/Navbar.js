@@ -8,11 +8,12 @@ import {
     setSignedIn,
     setUserData,
 } from "../features/userSlice";
+import '../styling/navbar.scss';
 import { Avatar } from "@material-ui/core";
 
 const Navbar = () => {
 
-    const [inputValue, setInputValue] = useState("tech");
+    const [inputValue, setInputValue] = useState("");
     const isSignedIn = useSelector(selectSignedIn);
     const userData = useSelector(setUserData);
 
@@ -30,11 +31,11 @@ const Navbar = () => {
 
             {isSignedIn && (
                 <div className="blog__search">
-                    <h1 className="navbar__header">Tera Developers</h1>
+                    <h1 className="navbar__header">Tera 💬 Developers</h1>
                     <input className="search"
-                        val placeholder="Search"
+                        val placeholder="search"
                         value={inputValue}
-                        onChange="{(e)=> setInputValue(e.target.value)}"
+                        onChange={(e) => setInputValue(e.target.value)}
                     />
                     <button className="submit" onClick={handleClick} >Search</button>
                 </div>
@@ -56,7 +57,7 @@ const Navbar = () => {
                                 disabled={renderProps.disabled}
                                 className="logout__button"
                             >
-                                Logout 😦
+                                Logout
                             </button>
                         )}
                         onLogoutSuccess={logout}
@@ -65,7 +66,6 @@ const Navbar = () => {
             ) : (
                 <h1 className="notSignedIn"></h1>
             )}
-
         </div>
     )
 }
