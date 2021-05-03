@@ -21,11 +21,9 @@ const Homepage = () => {
         >
             { <div className='entry__message'>
                 <h2> Tera Developers</h2>
-                <h3>House of Developers</h3>
-                <p>
-                    We Provide high quality Software Development & Design related Posts.
-                </p>
-            </div>}
+                <h4>(House of Developers)</h4>
+            </div>
+            }
         </div>
     )
 }
