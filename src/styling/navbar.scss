@@ -43,6 +43,19 @@
     font-weight: 500;
     cursor: pointer;
   }
+
+  .login__button {
+    //margin-left: 20px;
+    //padding: 12px 25px;
+    border-radius: 50px;
+    border: none;
+    background: rgb(11, 14, 194);
+    font-family: "Inter";
+    color: white;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+  }
   
   .notSignedIn {
     font-size: 15px;
